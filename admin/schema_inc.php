@@ -1,5 +1,22 @@
 <?php
 
+global $gBitSystem;
+
+$gBitSystem->registerPackageInfo( FISHEYE_PKG_NAME, array(
+	'description' => "FishEye is a package for creating image galleries",
+	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>'
+) );
+
+// Requirements
+$gBitSystem->registerRequirements( FISHEYE_PKG_NAME, array(
+    'liberty' => array( 'min' => '2.1.4' ),
+));
+
+
+// Install process
+global $gBitInstaller;
+if( is_object( $gBitInstaller ) ){
+
 $tables = array(
 
 'fisheye_gallery' => "
@@ -27,8 +44,6 @@ $tables = array(
 ",
 );
 
-global $gBitInstaller;
-
 foreach( array_keys( $tables ) AS $tableName ) {
 	$gBitInstaller->registerSchemaTable( FISHEYE_PKG_NAME, $tableName, $tables[$tableName] );
 }
@@ -40,11 +55,6 @@ $indices = array (
 	'fisheye_image_content_idx' => array( 'table' => 'fisheye_image', 'cols' => 'content_id', 'opts' => array( 'UNIQUE' ) ),
 );
 $gBitInstaller->registerSchemaIndexes( FISHEYE_PKG_NAME, $indices );
-
-$gBitInstaller->registerPackageInfo( FISHEYE_PKG_NAME, array(
-	'description' => "FishEye is a package for creating image galleries",
-	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>'
-) );
 
 // ### Sequences
 $sequences = array (
@@ -101,8 +111,4 @@ $gBitInstaller->registerContentObjects( FISHEYE_PKG_NAME, array(
 	'FisheyeImage'=>FISHEYE_PKG_PATH.'FisheyeImage.php',
 ));
 
-// Requirements
-$gBitInstaller->registerRequirements( FISHEYE_PKG_NAME, array(
-    'liberty' => array( 'min' => '2.1.4' ),
-));
-
+}
