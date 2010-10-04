@@ -1,0 +1,115 @@
+---
+fisheye: 
+  version: 0.0.0
+  required: false
+  requirements: 
+    liberty: 
+      min: 2.1.4
+  description: >
+    FishEye is a package for creating image
+    galleries
+  license: 
+    name: LGPL
+    description: Licensed under the GNU LESSER GENERAL PUBLIC LICENSE.
+    url: http://www.gnu.org/copyleft/lesser.html 
+  homeable: false
+  tables: 
+    fisheye_gallery: |
+      
+      gallery_id I4 PRIMARY,
+      content_id I4,
+      rows_per_page I4,
+      cols_per_page I4,
+      thumbnail_size C(32),
+      preview_content_id I4,
+      image_comment C(1)
+      
+    fisheye_gallery_image_map: |
+      
+      gallery_content_id I4 NOTNULL,
+      item_content_id I4 NOTNULL,
+      item_position F
+      
+    fisheye_image: |
+      
+      image_id I4 PRIMARY,
+      content_id I4 NOTNULL,
+      photo_date I8,
+      width I4,
+      height I4
+      
+  indexes: 
+    fisheye_gallery_id_idx: 
+      table: fisheye_gallery
+      cols: gallery_id
+      opts: 
+    fisheye_gallery_content_idx: 
+      table: fisheye_gallery
+      cols: content_id
+      opts: 
+        - UNIQUE
+    fisheye_image_id_idx: 
+      table: fisheye_image
+      cols: image_id
+      opts: 
+    fisheye_image_content_idx: 
+      table: fisheye_image
+      cols: content_id
+      opts: 
+        - UNIQUE
+  sequences: 
+    fisheye_gallery_id_seq: 
+      start: 1
+    fisheye_image_id_seq: 
+      start: 1
+  preferences: 
+    fisheye_list_title: y
+    fisheye_list_created: y
+    fisheye_list_user: y
+    fisheye_list_hits: y
+    fisheye_list_thumbnail: y
+    fisheye_list_thumbnail_size: small
+    fisheye_gallery_list_title: y
+    fisheye_gallery_list_description: y
+    fisheye_gallery_list_image_titles: y
+    fisheye_gallery_default_rows_per_page: 5
+    fisheye_gallery_default_cols_per_page: 3
+    fisheye_gallery_default_thumbnail_size: small
+    fisheye_image_list_title: y
+    fisheye_image_list_description: y
+    fisheye_image_default_thumbnail_size: medium
+    fisheye_menu_text: Image Galleries
+    fisheye_show_public_on_upload: y
+    fisheye_show_all_to_admins: y
+  permissions: 
+    p_fisheye_view: 
+      description: Can view image galleries
+      level: basic
+    p_fisheye_create: 
+      description: Can create an image gallery
+      level: registered
+    p_fisheye_update: 
+      description: Can update image gallery
+      level: editors
+    p_fisheye_upload: 
+      description: Can upload images to gallery
+      level: registered
+    p_fisheye_admin: 
+      description: Can admin image galleries
+      level: editors
+    p_fisheye_upload_nonimages: 
+      description: Can upload non_image files
+      level: editors
+    p_fisheye_change_thumb_size: 
+      description: Can set the thumbnail size for a gallery
+      level: editors
+    p_fisheye_create_public_gal: 
+      description: >
+        Can create public galleries any user can
+        load images into
+      level: editors
+    p_fisheye_download_gallery_arc: 
+      description: >
+         Can download an archived copy of
+        Fisheye gallery
+      level: basic
