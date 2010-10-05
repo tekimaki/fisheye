@@ -1,18 +1,7 @@
 ---
 fisheye: 
-  version: 0.0.0
-  required: false
-  requirements: 
-    liberty: 
-      min: 2.1.4
-  description: >
-    FishEye is a package for creating image
-    galleries
-  license: 
-    name: LGPL
-    description: Licensed under the GNU LESSER GENERAL PUBLIC LICENSE.
-    url: http://www.gnu.org/copyleft/lesser.html 
   homeable: false
+  required: false
   tables: 
     fisheye_gallery: |
       
@@ -113,3 +102,19 @@ fisheye:
          Can download an archived copy of
         Fisheye gallery
       level: basic
+  requirements: 
+    liberty: 
+      min: 2.1.4
+  version: 0.0.0
+  description: >
+    FishEye is a package for creating image
+    galleries
+  license: 
+    name: LGPL
+    description: >
+      Licensed under the GNU LESSER GENERAL
+      PUBLIC LICENSE.
+    url: http://www.gnu.org/copyleft/lesser.html
+  contentypes:
+    FisheyeGallery: FisheyeGallery.php
+    FisheyeImage: FisheyeImage.php
