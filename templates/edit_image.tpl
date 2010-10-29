@@ -114,7 +114,7 @@
 				{include file="bitpackage:liberty/edit_services_inc.tpl" serviceFile="content_edit_tab_tpl"}
 			{/jstabs}
 
-			<div class="row submit">
+			<div class="buttonHolder row submit">
 				<input type="submit" name="saveImage" value="Save Image"/>
 			</div>
 		{/form}

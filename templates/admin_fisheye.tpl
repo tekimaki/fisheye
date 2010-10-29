@@ -132,7 +132,7 @@
 			{/legend}
 		{/jstab}
 
-		<div class="row submit">
+		<div class="buttonHolder row submit">
 			<input type="submit" name="fisheyeAdminSubmit" value="{tr}Change Preferences{/tr}" />
 		</div>
 	{/jstabs}

@@ -51,7 +51,7 @@
 		{include file="bitpackage:fisheye/resize_image_select.tpl"}
 	</div>
 
-	<div class="row submit">
+	<div class="buttonHolder row submit">
 		<input type="submit" name="saveImage" value="Save Image"/>
 	</div>
 {/form}

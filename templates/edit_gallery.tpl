@@ -143,7 +143,7 @@ function updateGalleryPagination() {
 				{/if}
 			{/jstabs}
 
-			<div class="row submit">
+			<div class="buttonHolder row submit">
 				{if $gContent->isValid()}
 					<input type="submit" name="cancelgallery" value="Cancel"/>
 				{/if}
